@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from SkinProductA.pushToElasticsearch import PushDataToES
 from SkinProductA.customer_details import CustomerDetails
-from django.shortcuts import render # type: ignore
+from django.shortcuts import render 
 from datetime import datetime
 
 
