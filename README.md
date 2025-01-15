@@ -22,7 +22,7 @@ load.html
 show_data.html
 
 **3. webscrap_project folder**
-This folder contains a single file: views.py, which handles the functionality of buttons for:
+This folder contains a file: views.py, which handles the functionality of buttons for:
 
 Load Data: To load data.
 Search Data: To search for data.
