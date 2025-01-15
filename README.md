@@ -11,6 +11,7 @@ webscrap.py: This file scrapes data from Flipkart.
 fromWebToDatabase.py: This file pushes the scraped data to the database.
 pushToElasticsearch.py: This file pushes the data from the database to Elasticsearch.
 customeDetails.py: This file allows customers to enter their details and desired products. It includes a search_data function that searches for products in Elasticsearch.
+
 **2. templates folder**
 This folder contains the HTML files:
 
