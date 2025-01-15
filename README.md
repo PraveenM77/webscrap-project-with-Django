@@ -2,9 +2,6 @@
 
 Description: Scrape data from Flipkart, push it to PostgreSQL, and then to Elasticsearch. Using Elasticsearch, products can be searched through the search option displayed in the UI.
 
-
-There are three folders in the main directory: SkinproductA, templates, and webscrap_project.
-
 The main folder contains three subfolders: SkinproductA, templates, and webscrap_project.
 
 **1. SkinproductA folder**
