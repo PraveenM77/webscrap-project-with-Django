@@ -39,7 +39,7 @@ class CustomerDetails:
         }
         self.customer_details.append(cust_list)
 
-    def search_data(self, data):
+    def search_query(self, data):
         query = {
             "query": {
                 "multi_match": {
@@ -57,7 +57,11 @@ class CustomerDetails:
                 }
             }
         }
+        return query
 
+    
+    def search_data(self, data):
+        query=self.search_query(data)
         if self.es.ping():
             response = self.es.search(index=self.index_name, body=query)
             results = []
