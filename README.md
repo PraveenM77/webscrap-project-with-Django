@@ -70,12 +70,12 @@ Follow these steps to get the project up and running on your local machine:
    - ### On Windows
      1. Download Elasticsearch from the official site:
 
-    ```bash
-    https://www.elastic.co/downloads/elasticsearch
-    ```
-    - Extract the ZIP file.
-    - Open Command Prompt and navigate to the extracted folder.
-    - Run the command:
+        ```bash
+        https://www.elastic.co/downloads/elasticsearch
+        ```
+     2. Extract the ZIP file.
+     3. Open Command Prompt and navigate to the extracted folder.
+     4. Run the command:
       bin\elasticsearch.bat
       Elasticsearch will start running at http://localhost:9200/
 
