@@ -79,60 +79,50 @@ Follow these steps to get the project up and running on your local machine:
       bin\elasticsearch.bat
       Elasticsearch will start running at http://localhost:9200/
 
-   - 3Install Homebrew
-    - If you don't have Homebrew installed, install it using the following command:
+   - ### On Mac
+     1. Install Homebrew
+         If you don't have Homebrew installed, install it using the following command:
 
 
    
-   - ```bash
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-     ```
+     2. ```bash
+           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        ```
+     3. ``` bash
+             brew --version
+        ```
+         (After installation, verify it by running this command If Homebrew is installed, it will display the version number.
 
-   - After installation, verify it by running:
+     4. ```bash
+           brew tap elastic/tap
+        ```
+     5. ```bash
+           brew install elasticsearch
+        ```
+        this will download and install Elasticsearch on your system.
 
+     6. Start Elasticsearch. Once installed, start Elasticsearch using:
+        ```bash
+           elasticsearch
+        ```
+        By default, Elasticsearch runs on port 9200.
 
-   - brew --version
-     If Homebrew is installed, it will display the version number.
+     7. Verify Elasticsearch is Running. After starting Elasticsearch, open a new terminal and run
+                 or
+        open a browser and go to:
+        ```bash
+           http://localhost:9200/
+        ```
 
-
-7. **Run database migrations**:Step 2: Install Elasticsearch
-Run the following command to install Elasticsearch:
-
-Edit
-brew tap elastic/tap
-brew install elasticsearch
-his will download and install Elasticsearch on your system.
-
-Step 3: Start Elasticsearch
-Once installed, start Elasticsearch using:
-
-bash
-Copy
-Edit
-elasticsearch
-By default, Elasticsearch runs on port 9200.
-
-Step 4: Verify Elasticsearch is Running
-After starting Elasticsearch, open a new terminal and run:
-
-
-OR open a browser and go to:
- http://localhost:9200/
-
-
-    ```bash
-    python manage.py migrate
-    ```
 
 8. **Start the development server**:
 
     ```bash
-    python manage.py runserver
+       python manage.py runserver
     ```
+    project should now be running on `http://127.0.0.1:8000/`.
 
-project should now be running on `http://127.0.0.1:8000/`.
-
-
+   ---
 ### Project Folder Structure
 
 The main folder contains three subfolders: `SkinproductA`, `templates`, and `webscrap_project`.
