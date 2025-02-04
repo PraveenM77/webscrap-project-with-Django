@@ -1,4 +1,4 @@
-from elasticsearch import Elasticsearch
+from elasticsearch import Elasticsearch, exceptions
 import re
 
 class CustomerDetails:
@@ -62,21 +62,36 @@ class CustomerDetails:
     
     def search_data(self, data):
         query=self.search_query(data)
-        if self.es.ping():
-            response = self.es.search(index=self.index_name, body=query)
+        results = []
+        try:
+            if self.es.ping():
+                response = self.es.search(index=self.index_name, body=query)
+                
+                for hit in response["hits"]["hits"]:
+                    source = hit["_source"]
+                    product = {
+                        "product_name": source.get("product_name", "N/A"),
+                        "product_price": source.get("product_price", "N/A"),
+                        "product_brand": source.get("product_brand", "N/A"),
+                        "product_qty": source.get("product_qty", "N/A"),
+                        "product_skin_type": source.get("product_skin_type", "N/A"),
+                        "product_highlights": source.get("product_highlights", "N/A"),
+                        "product_description": source.get("product_description", "N/A")
+                    }
+                    results.append(product)
+            else:
+                raise exceptions.ConnectionError("Elasticsearch server is not reachable.")
+
+        except exceptions.ConnectionError as e:
+            # Handle connection error
+            print(f"Connection error: {e}")
+            # You can return an empty list or any fallback behavior here
             results = []
-            for hit in response["hits"]["hits"]:
-                source = hit["_source"]
-                product = {
-                    "product_name": source.get("product_name", "N/A"),
-                    "product_price": source.get("product_price", "N/A"),
-                    "product_brand": source.get("product_brand", "N/A"),
-                    "product_qty": source.get("product_qty", "N/A"),
-                    "product_skin_type": source.get("product_skin_type", "N/A"),
-                    "product_highlights": source.get("product_highlights", "N/A"),
-                    "product_description": source.get("product_description", "N/A")
-                }
-                results.append(product)
+        
+        except exceptions.NotFoundError as e:
+            # Handle "not found" errors if specific index or document is not found
+            print(f"Not found error: {e}")
+            results = []
         return results
 
 

@@ -62,23 +62,26 @@
 </head>
 <body>
 
-    <div class="container">
-        <h5>Data Load Results</h5>
 
-        <div class="time-taken">
-            Time taken to load data: {{ time }}
+    {% if error_msg %}
+        <h1>{{error_msg}}</h1>
+    {% else %}
+    
+        <div class="container">
+            <h5>Data Load Results</h5>
+
+            <div class="time-taken">
+                Time taken to load data: {{ time }}
+            </div>
+
+            <div>
+                {% for data in output %}
+                <pre>{{ data }}</pre>
+                {% endfor %}
+            </div>
         </div>
+    {% endif %}
 
-        <div>
-            {% for data in output %}
-            <pre>{{ data }}</pre>
-            {% endfor %}
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2025 Data Management System. All Rights Reserved.
-    </footer>
-
+    
 </body>
 </html>

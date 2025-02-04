@@ -5,7 +5,7 @@ class PushDataToES:
 
     def __init__(self, host, user, password):
         self.es = Elasticsearch(host, basic_auth=(user, password)) if user and password else None
-        self.index_name = "skin_product"
+        self.index_name = "skin_product_list"
 
     def database_connection(self):
         try:
@@ -95,7 +95,7 @@ p = PushDataToES(host, user, password)
 #p.create_index()
 #p.database_to_es()
 #result=p.available_data_es()
-#print(result)
+#print(len(result))
 
 # Display available data
 

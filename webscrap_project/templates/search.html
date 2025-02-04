@@ -6,10 +6,12 @@
     <title>Search Results</title>
 </head>
 <body>
+    
+    {% if error_msg %}
+    <h1> server error {{error_msg}} </h1>
+    
+    {% elif result %}
     <h2>Search Results for "{{ search_data }}"</h2>
-   
-
-    {% if result %}
     <h1>Time taken for the execution {{time_taken}}</h1>
         <ul>
             {% for item in result %}

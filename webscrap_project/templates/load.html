@@ -44,24 +44,29 @@
             margin-bottom: 10px;
             border-radius: 5px;
         }
-
-        
     </style>
 </head>
 <body>
 
-    <h5>Loading Page</h5>
-    <h5>Time Taken for the Load: {{ time_taken }}</h5>
     
-    <div class="result-container">
-        <h6>Results:</h6>
-        <ul>
-            {% for result in result %}
-            <li>{{ result }}</li>
-            {% endfor %}
-        </ul>
-    </div>
 
-    
+    {% if error_msg %}
+        <h1>{{ error_msg }}</h1> 
+    {% elif result %}
+        <h5>Loading Page</h5>
+        <h5>Time Taken for the Load: {{ time_taken }}</h5>
+        <div class="result-container">
+            <h6>Results:</h6>
+            <ul>
+                {% for item in result %} 
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <h6>No Data available for loads</h6> 
+    {% endif %}
+
 </body>
 </html>
+
