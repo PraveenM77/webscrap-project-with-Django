@@ -67,7 +67,8 @@ Follow these steps to get the project up and running on your local machine:
 
 6. **Configure PostgreSQL**:
     ### Windows
-       
+        - Install PostgreSQL using below link
+          https://www.postgresql.org/download/windows/
     ### For Mac
         - Install PostgreSQL
           ```bash
@@ -111,13 +112,8 @@ Follow these steps to get the project up and running on your local machine:
         ```
         this will download and install Elasticsearch on your system.
 
-     6. Start Elasticsearch. Once installed, start Elasticsearch using:
-        ```bash
-           elasticsearch
-        ```
-        By default, Elasticsearch runs on port 9200.
-
-     7. Verify Elasticsearch is Running. After starting Elasticsearch, open a new terminal and run
+     
+     6. Verify Elasticsearch is Running. After starting Elasticsearch, open a new terminal and run
                  or
         open a browser and go to:
         ```bash
