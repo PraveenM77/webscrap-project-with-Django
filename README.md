@@ -66,15 +66,18 @@ Follow these steps to get the project up and running on your local machine:
     ```
 
 6. **Configure PostgreSQL**:
-    - Install PostgreSQL
-      ```bash
-         brew install postgresql
-      ```
-    - ```bash
-         pip3 install psycopg2
-      ```
+    ### Windows
+       
+    ### For Mac
+        - Install PostgreSQL
+          ```bash
+             brew install postgresql
+          ```
+        - ```bash
+             pip3 install psycopg2
+          ```
  
-7. **Intall Elasticsearch**:
+8. **Intall Elasticsearch**:
 
    - ### On Windows
      1. Download Elasticsearch from the official site:
@@ -122,7 +125,7 @@ Follow these steps to get the project up and running on your local machine:
         ```
 
 
-8. **Start the development server**:
+9. **Start the development server**:
 
     ```bash
        python manage.py runserver
