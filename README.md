@@ -111,8 +111,9 @@ Follow these steps to get the project up and running on your local machine:
            brew install elastic/tap/elasticsearch-full
         ```
      6.To check elasticsearch status
-         ```bash
-           brew services list
+     
+        ```bash
+            brew services list
         ```
     7. start elasticsearch
         ```bash
