@@ -24,6 +24,9 @@ Key Features:
 
 Follow these steps to get the project up and running on your local machine:
 
+###Python Installation on Mac
+
+
 1. **Clone the repository** to your local machine:
 
     ```bash
@@ -63,7 +66,13 @@ Follow these steps to get the project up and running on your local machine:
     ```
 
 6. **Configure PostgreSQL**:
-    - Set up a PostgreSQL database and update the connection settings in the `settings.py` file.
+    - Install PostgreSQL
+      ```bash
+         brew install postgresql
+      ```
+    - ```bash
+         pip3 install psycopg2
+      ```
  
 7. **Intall Elasticsearch**:
 
@@ -82,8 +91,6 @@ Follow these steps to get the project up and running on your local machine:
    - ### On Mac
      1. Install Homebrew
          If you don't have Homebrew installed, install it using the following command:
-
-
    
      2. ```bash
            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
