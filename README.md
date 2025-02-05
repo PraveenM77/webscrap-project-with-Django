@@ -108,7 +108,7 @@ Follow these steps to get the project up and running on your local machine:
            brew tap elastic/tap
         ```
      5. ```bash
-           brew install elasticsearch
+           brew install elastic/tap/elasticsearch-full
         ```
         this will download and install Elasticsearch on your system.
 
