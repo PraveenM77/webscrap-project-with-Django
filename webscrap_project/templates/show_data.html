@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Load Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        h5 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+
+        .time-taken {
+            background-color: #e9f7fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #0056b3;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+
+    {% if error_msg %}
+        <h1>{{error_msg}}</h1>
+    {% else %}
+    
+        <div class="container">
+            <h5>Data Load Results</h5>
+
+            <div class="time-taken">
+                Time taken to load data: {{ time }}
+            </div>
+
+            <div>
+                {% for data in output %}
+                <pre>{{ data }}</pre>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    
+</body>
+</html>

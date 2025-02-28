@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    
+    {% if error_msg %}
+    <h1> server error {{error_msg}} </h1>
+    
+    {% elif result %}
+    <h2>Search Results for "{{ search_data }}"</h2>
+    <h1>Time taken for the execution {{time_taken}}</h1>
+        <ul>
+            {% for item in result %}
+                <li>
+                    <strong>Product Name:</strong> {{ item.product_name }}<br>
+                    <strong>Product Price:</strong> {{ item.product_price }}<br>
+                    <strong>Product Brand:</strong> {{ item.product_brand }}<br>
+                    <strong>Product Quantity:</strong> {{ item.product_qty }}<br>
+                    <strong>Skin Type:</strong> {{ item.product_skin_type }}<br>
+                    <strong>Product Highlights:</strong> {{ item.product_highlights }}<br>
+                    <strong>Description:</strong> {{ item.product_description }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No data found for the search term "{{ search_data }}".</p>
+    {% endif %}
+</body>
+</html>

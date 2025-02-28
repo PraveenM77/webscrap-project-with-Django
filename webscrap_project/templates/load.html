@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h5 {
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+
+        .result-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .result-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .result-container li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    {% if error_msg %}
+        <h1>{{ error_msg }}</h1> 
+    {% elif result %}
+        <h5>Loading Page</h5>
+        <h5>Time Taken for the Load: {{ time_taken }}</h5>
+        <div class="result-container">
+            <h6>Results:</h6>
+            <ul>
+                {% for item in result %} 
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% else %}
+        <h6>No Data available for loads</h6> 
+    {% endif %}
+
+</body>
+</html>
+
