@@ -1,0 +1,64 @@
+version: "3.8"
+
+services:
+  # The web scraper service
+  web:
+    build: .
+    container_name: python_scraper
+    volumes:
+      - .:/app  # Mounts the current directory to the container
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+
+    depends_on:
+      - db
+      - elasticsearch  # Ensures the database and Elasticsearch are ready before starting the scraper
+    entrypoint: ["./wait-for-it.sh", "elasticsearch:9200", "--", "sh", "-c", "python webscrapflipkart.py && python fromWebToDatabase.py && python pushToElasticsearch.py"] # Waits for Elasticsearch to be ready before running scraper
+    #entrypoint: ["./wait-for-it.sh", "elasticsearch:9200", "--", "sh", "-c", "python pushToElasticsearch.py"]
+
+    networks:
+      - mynetwork
+
+  # The PostgreSQL service
+  db:
+    image: postgres:13
+    container_name: postgres_db
+    environment:
+      - POSTGRES_DB=testdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    volumes:
+      - pg_data:/var/lib/postgresql/data  # Persist data between container restarts
+    networks:
+      - mynetwork
+
+  # Elasticsearch service (using version 7.x)
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0  # Using Elasticsearch 7.10.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom -Xmx2g -Xms2g -Des.ignore_system_memory=true
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    networks:
+      - mynetwork
+
+# Define a persistent volume for PostgreSQL data
+volumes:
+  pg_data:
+    driver: local
+
+  es_data:
+    driver: local
+
+# Define the network to connect the services
+networks:
+  mynetwork:
+    driver: bridge
