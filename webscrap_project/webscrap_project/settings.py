@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+# Elasticsearch Connection Details
+ES_HOST = "http://elasticsearch:9200"
+
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +31,9 @@ SECRET_KEY = 'django-insecure-r7j90t9cpf$zb4t0v%%(n+&#*b1!69iy^97^z_5fywn89v7l4w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+
 
 
 # Application definition

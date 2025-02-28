@@ -5,7 +5,7 @@ class CustomerDetails:
     def __init__(self, host="http://localhost:9200"):
         self.customer_details=[]
         self.mobile_pattern=r"^(\+91|0)?[6-9][0-9]{9}$"
-        self.index_name = "mobile_list_index"
+        self.index_name = "skin_product_list"
         self.cust_details = []
         self.es = Elasticsearch(host, basic_auth=("elastic", "elastic"))
 
