@@ -12,10 +12,10 @@ def fetch_connection(retries=5, delay=5):
     while attempt < retries:
         try:
             connection = psycopg2.connect(
-                host="db",  # Update with actual host
-                user="postgres",  # Update with actual user
-                password="1234",  # Update with actual password
-                database="testdb"  # Update with actual database name
+                host="db", 
+                user="postgres",  
+                password="1234",  
+                database="testdb" 
             )
             logging.info("Connected to the database successfully.")
             return connection
